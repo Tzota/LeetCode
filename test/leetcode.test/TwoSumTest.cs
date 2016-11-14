@@ -8,7 +8,7 @@ namespace leetcode_test
     public class TwoSumTest
     {
         [Test]
-        public void TwoSum_Neighbours_OK() 
+        public void TwoSum_Neighbours_OK()
         {
             int[] answer = new TwoSum().Find(new int[] { 2, 7, 11, 15 }, 9);
             Assert.That(answer, Has.Exactly(1).EqualTo(0));
@@ -16,7 +16,7 @@ namespace leetcode_test
         }
 
         [Test]
-        public void TwoSum_Distant_OK() 
+        public void TwoSum_Distant_OK()
         {
             int[] answer = new TwoSum().Find(new int[] { 2, 11, 7, 15 }, 9);
             Assert.That(answer, Has.Exactly(1).EqualTo(0));
@@ -24,11 +24,19 @@ namespace leetcode_test
         }
 
         [Test]
-        public void TwoSum_NoExtraMembers_OK() 
+        public void TwoSum_NoExtraMembers_OK()
         {
             int[] answer = new TwoSum().Find(new int[] { 2, 7}, 9);
             Assert.That(answer, Has.Exactly(1).EqualTo(0));
             Assert.That(answer, Has.Exactly(1).EqualTo(1));
+        }
+
+        [Test]
+        public void TwoSum_RepeatingItems_OK()
+        {
+            int[] answer = new TwoSum().Find(new int[] { 2, 1, 1, 1, 1, 7}, 9);
+            Assert.That(answer, Has.Exactly(1).EqualTo(0));
+            Assert.That(answer, Has.Exactly(1).EqualTo(5));
         }
     }
 }
