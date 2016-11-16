@@ -24,15 +24,8 @@ namespace leetcode
             {
                 var i = 0; // doesn't matter 'cause some value will rewrite it
 
-                if (l1 != null)
-                {
-                    i += l1.val;
-                }
-
-                if (l2 != null)
-                {
-                    i += l2.val;
-                }
+                i += ExtractValue(l1);
+                i += ExtractValue(l2);
 
                 i += overflow;
 
@@ -51,18 +44,32 @@ namespace leetcode
 
                 current = node;
 
-                if (l1 != null)
-                {
-                    l1 = l1.next;
-                }
-
-                if (l2 != null)
-                {
-                    l2 = l2.next;
-                }
-
+                MoveNext(ref l1);
+                MoveNext(ref l2);
             }
+
+            if (overflow != 0) {
+                current.next = new ListNode(overflow);
+            }
+
             return first;
+        }
+
+        /// <summary>
+        /// Tries to extract value from node
+        /// </summary>
+        private int ExtractValue(ListNode l) {
+            return null == l ? 0 : l.val;
+        }
+
+        /// <summary>
+        /// Moves no next node (if exists)
+        /// </summary>
+        private void MoveNext(ref ListNode l) {
+            if (l != null)
+            {
+                l = l.next;
+            }
         }
     }
 

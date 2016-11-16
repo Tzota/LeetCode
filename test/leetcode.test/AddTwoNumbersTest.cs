@@ -51,5 +51,61 @@ namespace leetcode_test
             Assert.That(answer.next.val, Is.EqualTo(0));
             Assert.That(answer.next.next.val, Is.EqualTo(8));
         }
+
+        /// Input: (3 -> 2) + (3 -> 2 -> 1)
+        /// Output: 6 -> 4 -> 1
+        [Test]
+        public void AddTwoNumbers_DifferentLengthNoOverflow_OK()
+        {
+            var x = new ListNode(3) {
+                next = new ListNode(2)
+            };
+
+            var y = new ListNode(3) {
+                next = new ListNode(2) {
+                    next = new ListNode(1)
+                }
+            };
+
+            var answer = (new AddTwoNumbers()).Execute(x, y);
+            Assert.That(answer.val, Is.EqualTo(6));
+            Assert.That(answer.next.val, Is.EqualTo(4));
+            Assert.That(answer.next.next.val, Is.EqualTo(1));
+        }
+
+        // Input: (2 -> 4 -> 3) + (5 -> 6)
+        /// Output: 7 -> 0 -> 4
+        [Test]
+        public void AddTwoNumbers_DifferenthWithOverflow_OK()
+        {
+            var x = new ListNode(2) {
+                next = new ListNode(4) {
+                    next = new ListNode(3)
+                }
+            };
+
+            var y = new ListNode(5) {
+                next = new ListNode(6)
+            };
+
+            var answer = (new AddTwoNumbers()).Execute(x, y);
+            Assert.That(answer.val, Is.EqualTo(7));
+            Assert.That(answer.next.val, Is.EqualTo(0));
+            Assert.That(answer.next.next.val, Is.EqualTo(4));
+        }
+
+        /// Input: (5) + (5)
+        /// Output: 10
+        [Test]
+        public void AddTwoNumbers_SameLengthWithOverflow2_OK()
+        {
+            var x = new ListNode(5);
+
+            var y = new ListNode(5);
+
+            var answer = (new AddTwoNumbers()).Execute(x, y);
+            Assert.That(answer.val, Is.EqualTo(0));
+            Assert.That(answer.next.val, Is.EqualTo(1));
+        }
     }
 }
