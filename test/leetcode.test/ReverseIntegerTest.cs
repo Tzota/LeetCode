@@ -7,6 +7,13 @@ namespace leetcode_test
     public class ReverseIntegerTest
     {
         [Test]
+        public void ReverseIntegerTest_SmallInt_OK()
+        {
+            var answer = (new ReverseInteger()).Execute(1);
+            Assert.That(answer, Is.EqualTo(1));
+        }
+
+        [Test]
         public void ReverseIntegerTest_SimpleInt_OK()
         {
             var answer = (new ReverseInteger()).Execute(123);
@@ -42,5 +49,14 @@ namespace leetcode_test
             var answer = (new ReverseInteger()).Execute(100);
             Assert.That(answer, Is.EqualTo(1));
         }
+
+        [Test]
+        public void ReverseIntegerTest_DoubleOverflow_Zero()
+        {
+            var answer = (new ReverseInteger()).Execute(1534236469);
+            Assert.That(answer, Is.EqualTo(0));
+        }
+
+
     }
 }

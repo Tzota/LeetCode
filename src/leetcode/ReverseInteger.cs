@@ -1,3 +1,5 @@
+using System;
+
 namespace leetcode
 {
     /// <summary>
@@ -10,27 +12,31 @@ namespace leetcode
         /// <summary>
         /// Reverse digits of an integer.
         /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public int Execute(int num)
+        /// <param name="x"></param>
+        /// <returns>reversed int</returns>
+        public int Execute(int x)
+        {
+            return WithChecked(x);
+        }
+
+        private int WithChecked(int x)
         {
             int res = 0;
 
-            while(num != 0)
+            while(x != 0)
             {
-                int r = num % 10;
+                int r = x % 10;
 
                 try
                 {
                     // Нет, можно, конечно, просто смену знака смотреть...
                     res = checked(res * 10 + r);
                 }
-                catch (System.OverflowException e)
+                catch (System.OverflowException)
                 {
                     return 0;
                 }
-
-                num = num / 10;
+                x = x / 10;
             }
 
             return res;
