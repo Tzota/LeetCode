@@ -1,42 +1,42 @@
 using leetcode;
-using NUnit.Framework;
-
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace leetcode_test
 {
-    [TestFixture]
+    [TestClass]
     public class TwoSumTest
     {
-        [Test]
+        [TestMethod]
         public void TwoSum_Neighbours_OK()
         {
             int[] answer = new TwoSum().Find(new int[] { 2, 7, 11, 15 }, 9);
-            Assert.That(answer, Has.Exactly(1).EqualTo(0));
-            Assert.That(answer, Has.Exactly(1).EqualTo(1));
+            Assert.AreEqual(1, answer.Where(o => o == 0).Count());
+            Assert.AreEqual(1, answer.Where(o => o == 1).Count());
         }
 
-        [Test]
+        [TestMethod]
         public void TwoSum_Distant_OK()
         {
             int[] answer = new TwoSum().Find(new int[] { 2, 11, 7, 15 }, 9);
-            Assert.That(answer, Has.Exactly(1).EqualTo(0));
-            Assert.That(answer, Has.Exactly(1).EqualTo(2));
+            Assert.AreEqual(1, answer.Where(o => o == 0).Count());
+            Assert.AreEqual(1, answer.Where(o => o == 2).Count());
         }
 
-        [Test]
+        [TestMethod]
         public void TwoSum_NoExtraMembers_OK()
         {
             int[] answer = new TwoSum().Find(new int[] { 2, 7}, 9);
-            Assert.That(answer, Has.Exactly(1).EqualTo(0));
-            Assert.That(answer, Has.Exactly(1).EqualTo(1));
+            Assert.AreEqual(1, answer.Where(o => o == 0).Count());
+            Assert.AreEqual(1, answer.Where(o => o == 1).Count());
         }
 
-        [Test]
+        [TestMethod]
         public void TwoSum_RepeatingItems_OK()
         {
             int[] answer = new TwoSum().Find(new int[] { 2, 1, 1, 1, 1, 7}, 9);
-            Assert.That(answer, Has.Exactly(1).EqualTo(0));
-            Assert.That(answer, Has.Exactly(1).EqualTo(5));
+            Assert.AreEqual(1, answer.Where(o => o == 0).Count());
+            Assert.AreEqual(1, answer.Where(o => o == 5).Count());
         }
     }
 }
