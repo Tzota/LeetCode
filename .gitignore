@@ -1,5 +1,3 @@
 TestResult.xml
-src/leetcode/bin
-src/leetcode/obj
-test/leetcode.test/bin
-test/leetcode.test/obj
+**/bin
+**/obj

@@ -7,6 +7,7 @@
         {
             "taskName": "build",
             "args": [
+                "build",
                 "src/leetcode"
             ],
             "isBuildCommand": true,
@@ -16,8 +17,18 @@
             "taskName": "test",
             "isTestCommand": true,
             "args": [
+                "test",
                 "test/leetcode.test"
             ]
+        },
+        {
+            "taskName": "build generator",
+            "args": [
+                "build",
+                "generator"
+            ],
+            "isBuildCommand": true,
+            "problemMatcher": "$msCompile"
         }
     ]
 }
