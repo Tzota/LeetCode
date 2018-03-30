@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace leetcode
 {
     /// <summary>
@@ -82,6 +84,20 @@ namespace leetcode
         public ListNode(int x)
         {
             val = x;
+        }
+    }
+
+    public class ListNodeDumper
+    {
+        public string Dump(ListNode l)
+        {
+            var res = new List<string>();
+            while(l != null)
+            {
+                res.Add(l.val.ToString());
+                l = l.next;
+            }
+            return string.Join("->", res.ToArray());
         }
     }
 }
