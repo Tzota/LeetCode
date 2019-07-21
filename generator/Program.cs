@@ -24,6 +24,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace leetcode_test
 {{
+    [TestCategory(""{0}"")]
     [TestClass]
     public class {0}Test
     {{
