@@ -1,33 +1,43 @@
 {
-    "version": "0.1.0",
+    "version": "2.0.0",
     "command": "dotnet",
-    "isShellCommand": true,
     "args": [],
     "tasks": [
         {
-            "taskName": "build",
+            "label": "build",
             "args": [
                 "build",
                 "src/leetcode"
             ],
-            "isBuildCommand": true,
+            "group": "build",
             "problemMatcher": "$msCompile"
         },
         {
-            "taskName": "test",
-            "isTestCommand": true,
+            "label": "test all",
+            "group": "test",
             "args": [
                 "test",
                 "test/leetcode.test"
-            ]
+            ],
+            "type": "shell"
         },
         {
-            "taskName": "build generator",
+            "label": "test current",
+            "group": "test",
+            "args": [
+                "test",
+                "test/leetcode.test",
+                "--filter TestCategory=MergeSortedArray"
+            ],
+            "type": "shell"
+        },
+        {
+            "label": "build generator",
             "args": [
                 "build",
                 "generator"
             ],
-            "isBuildCommand": true,
+            "group": "build",
             "problemMatcher": "$msCompile"
         }
     ]

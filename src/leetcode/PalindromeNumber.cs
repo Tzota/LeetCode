@@ -9,13 +9,8 @@ namespace leetcode
     {
         public bool Execute(int x)
         {
-            // if (x < 0) {
-            //     return false;
-            // }
-
-            // if (x == 0) {
-            //     return true;
-            // }
+            // if (x < 0) return false;
+            // if (x == 0) return true;
 
             // return x == (new ReverseInteger()).Execute(x);
 
